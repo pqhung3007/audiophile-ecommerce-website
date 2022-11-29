@@ -16,17 +16,17 @@ function Footer() {
         />
 
         <ul className="flex flex-col space-y-6 text-center text-xs font-bold uppercase tracking-[2.5px] text-white md:flex-row md:space-y-0 md:space-x-6">
-          <li>
+          <li className="duration-200 hover:text-accent">
             <Link href="/">home</Link>
           </li>
-          <li>
-            <Link href="">headphone</Link>
+          <li className="duration-200 hover:text-accent">
+            <Link href="/headphones">headphones</Link>
           </li>
-          <li>
-            <Link href="">speakers</Link>
+          <li className="duration-200 hover:text-accent">
+            <Link href="/speakers">speakers</Link>
           </li>
-          <li>
-            <Link href="">earphones</Link>
+          <li className="duration-200 hover:text-accent">
+            <Link href="/earphones">earphones</Link>
           </li>
         </ul>
       </div>
