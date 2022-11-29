@@ -3,3 +3,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (min-width: 768px) {
+  .grid-settings {
+    grid-template-areas:
+      "a a"
+      "b c";
+    grid-template-columns: 50% 1fr;
+  }
+
+  .grid-a {
+    grid-area: a;
+  }
+
+  .grid-b {
+    grid-area: b;
+  }
+
+  .grid-c {
+    grid-area: c;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-settings {
+    grid-template-areas:
+      "a c"
+      "b .";
+  }
+}
+
+.decoration-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 5px;
+  width: 6rem;
+  background-color: #fbaf85;
+}
