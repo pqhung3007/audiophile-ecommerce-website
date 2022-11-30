@@ -3,7 +3,7 @@ import React from "react";
 
 function SocialLinks() {
   return (
-    <div className="grid-c flex justify-center gap-3 md:justify-end lg:items-end">
+    <div className="grid-c flex justify-center gap-4 md:justify-end lg:items-end">
       <Link href="/">
         <svg
           width="24"
