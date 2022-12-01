@@ -5,7 +5,7 @@ import YX1Earphones from "./YX1Earphones";
 
 function ProductShowcase() {
   return (
-    <div className="mt-20 flex flex-col gap-4">
+    <div className="flex flex-col gap-4 pb-20">
       <ZX9Speaker />
       <ZX7Speaker />
       <YX1Earphones />

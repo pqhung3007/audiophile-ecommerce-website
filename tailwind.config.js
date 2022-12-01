@@ -46,6 +46,9 @@ module.exports = {
           lineHeight: '1.5rem'
         }]
       },
+      backgroundImage: {
+        'pattern-circles': "url('/assets/home/desktop/pattern-circles.svg')"
+      }
     },
   },
   plugins: [],
