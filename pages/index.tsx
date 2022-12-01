@@ -1,5 +1,6 @@
 import Head from "next/head";
 import BestGear from "../components/BestGear";
+import CategoryLinks from "../components/CategoryLinks";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -11,7 +12,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="mx-auto max-w-7xl px-6 lg:px-16">
+      <main className="mx-auto max-w-7xl px-6 pt-32 lg:px-16">
+        <CategoryLinks />
         <BestGear />
       </main>
       <Footer />
