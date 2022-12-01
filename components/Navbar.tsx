@@ -1,48 +1,81 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import CategoryLinks from "./CategoryLinks";
 
 function Navbar() {
-  return (
-    <div className="flex h-16 items-center justify-between bg-black px-6 lg:px-16">
-      <button
-        id="menu-btn"
-        className="hamburger relative z-20 block focus:outline-none lg:hidden"
-      >
-        <span className="hamburger-top"></span>
-        <span className="hamburger-middle"></span>
-        <span className="hamburger-bottom"></span>
-      </button>
-      <Image
-        src="/assets/shared/desktop/logo.svg"
-        alt="logo"
-        width={143}
-        height={25}
-      />
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
 
-      <ul className="hidden space-x-6 text-xs font-bold uppercase tracking-[2.5px] text-white lg:flex">
-        <li className="duration-200 hover:text-accent">
-          <Link href="/">home</Link>
-        </li>
-        <li className="duration-200 hover:text-accent">
-          <Link href="/headphones">headphones</Link>
-        </li>
-        <li className="duration-200 hover:text-accent">
-          <Link href="/speakers">speakers</Link>
-        </li>
-        <li className="duration-200 hover:text-accent">
-          <Link href="/earphones">earphones</Link>
-        </li>
-      </ul>
-      <button>
+  const handleOpenMenu = () => {
+    setIsOpen(!isOpen);
+    document.getElementById("menu-btn")?.classList.toggle("open");
+  };
+
+  const handleClickOutside = (e: React.MouseEvent) => {
+    if (e.target === menuRef.current) {
+      setIsOpen(false);
+    }
+  };
+
+  return (
+    <>
+      <div className="fixed z-30 flex h-16 w-full items-center justify-between bg-black px-6 lg:px-16">
+        {/* Hamburger */}
+        <button
+          id="menu-btn"
+          className="hamburger relative z-20 block focus:outline-none lg:hidden"
+          onClick={handleOpenMenu}
+        >
+          <span className="hamburger-top"></span>
+          <span className="hamburger-middle"></span>
+          <span className="hamburger-bottom"></span>
+        </button>
         <Image
-          src="/assets/shared/desktop/icon-cart.svg"
+          src="/assets/shared/desktop/logo.svg"
           alt="logo"
-          width={23}
-          height={20}
+          width={143}
+          height={25}
         />
-      </button>
-    </div>
+
+        <ul className="hidden space-x-6 text-xs font-bold uppercase tracking-[2.5px] text-white lg:flex">
+          <li className="duration-200 hover:text-accent">
+            <Link href="/">home</Link>
+          </li>
+          <li className="duration-200 hover:text-accent">
+            <Link href="/headphones">headphones</Link>
+          </li>
+          <li className="duration-200 hover:text-accent">
+            <Link href="/speakers">speakers</Link>
+          </li>
+          <li className="duration-200 hover:text-accent">
+            <Link href="/earphones">earphones</Link>
+          </li>
+        </ul>
+
+        <button>
+          <Image
+            src="/assets/shared/desktop/icon-cart.svg"
+            alt="logo"
+            width={23}
+            height={20}
+          />
+        </button>
+      </div>
+
+      {/* Menu */}
+      {isOpen ? (
+        <div
+          className="fixed inset-x-0 inset-y-16 z-10 min-h-screen bg-black/50"
+          ref={menuRef}
+          onClick={handleClickOutside}
+        >
+          <div className="w-full bg-white px-6 pt-12">
+            <CategoryLinks />
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }
 
