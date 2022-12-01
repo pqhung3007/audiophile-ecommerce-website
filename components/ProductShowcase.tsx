@@ -1,0 +1,16 @@
+import React from "react";
+import ZX9Speaker from "./ZX9Speaker";
+import ZX7Speaker from "./ZX7Speaker";
+import YX1Earphones from "./YX1Earphones";
+
+function ProductShowcase() {
+  return (
+    <div className="mt-20 flex flex-col gap-4">
+      <ZX9Speaker />
+      <ZX7Speaker />
+      <YX1Earphones />
+    </div>
+  );
+}
+
+export default ProductShowcase;
