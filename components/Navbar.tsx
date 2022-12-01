@@ -22,15 +22,19 @@ function Navbar() {
     <>
       <div className="fixed z-30 flex h-16 w-full items-center justify-between bg-black px-6 lg:px-16">
         {/* Hamburger */}
-        <button
-          id="menu-btn"
-          className="hamburger relative z-20 block focus:outline-none lg:hidden"
-          onClick={handleOpenMenu}
-        >
-          <span className="hamburger-top"></span>
-          <span className="hamburger-middle"></span>
-          <span className="hamburger-bottom"></span>
+        <button onClick={handleOpenMenu}>
+          <Image
+            src={`${
+              isOpen
+                ? "/assets/shared/tablet/icon-close-menu.svg"
+                : "/assets/shared/tablet/icon-hamburger.svg"
+            }`}
+            alt="menu icon"
+            width={16}
+            height={15}
+          />
         </button>
+
         <Image
           src="/assets/shared/desktop/logo.svg"
           alt="logo"
@@ -70,7 +74,7 @@ function Navbar() {
           ref={menuRef}
           onClick={handleClickOutside}
         >
-          <div className="w-full bg-white px-6 pt-12">
+          <div className=" bg-white px-6 pt-12">
             <CategoryLinks />
           </div>
         </div>
