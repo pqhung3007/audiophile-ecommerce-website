@@ -18,7 +18,7 @@ module.exports = {
         accent: '#D87D4A',
         'accent-hover': '#fbaf85',
         footer: '#101010',
-        product: 'F1F1F1'
+        product: '#F1F1F1'
       },
       fontSize: {
         'heading1': ['3.5rem', {
