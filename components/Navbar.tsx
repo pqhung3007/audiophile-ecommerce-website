@@ -74,7 +74,7 @@ function Navbar() {
           ref={menuRef}
           onClick={handleClickOutside}
         >
-          <div className=" bg-white px-6 pt-12">
+          <div className=" bg-white px-6 pt-16">
             <CategoryLinks />
           </div>
         </div>
