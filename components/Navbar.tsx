@@ -7,9 +7,14 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
 
+  useEffect(() => {
+    isOpen
+      ? (document.body.style.overflowY = "hidden")
+      : (document.body.style.overflowY = "auto");
+  }, [isOpen]);
+
   const handleOpenMenu = () => {
     setIsOpen(!isOpen);
-    document.getElementById("menu-btn")?.classList.toggle("open");
   };
 
   const handleClickOutside = (e: React.MouseEvent) => {

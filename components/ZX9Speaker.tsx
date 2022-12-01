@@ -14,12 +14,12 @@ function ZX9Speaker() {
         />
         <img
           src="/assets/home/mobile/image-speaker-zx9.png"
-          className="mx-auto w-48 lg:ml-28 lg:w-[25rem]"
+          className="mx-auto w-48 lg:mx-20 lg:w-[20rem]"
           alt="zx9"
         />
       </picture>
 
-      <div className="mt-8 flex flex-col items-center space-y-4 text-center lg:ml-28 lg:items-start lg:text-left">
+      <div className="mt-8 flex flex-col items-center space-y-4 text-center lg:ml-20 lg:items-start lg:text-left">
         <h3 className="text-heading3 uppercase text-white md:text-heading1">
           zx9 speaker
         </h3>

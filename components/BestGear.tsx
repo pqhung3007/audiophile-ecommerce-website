@@ -2,7 +2,7 @@ import React from "react";
 
 function BestGear() {
   return (
-    <div className="flex flex-col items-center justify-center gap-12 pb-20 lg:flex-row-reverse">
+    <div className="flex flex-col items-center justify-center gap-12 pb-24 lg:flex-row-reverse">
       <div className="flex-1">
         <picture>
           <source
@@ -21,8 +21,8 @@ function BestGear() {
         </picture>
       </div>
 
-      <div className="flex-1 text-center lg:text-left">
-        <h2 className="mb-6 text-heading4 uppercase lg:text-heading2 lg:tracking-wide">
+      <div className="max-w-lg flex-1 text-center lg:text-left">
+        <h2 className="mb-6 text-heading4 uppercase md:text-heading2 lg:text-heading2 lg:tracking-wide">
           bringing you the <span className="text-accent">best</span> audio gear
         </h2>
 
