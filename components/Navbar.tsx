@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CategoryLinks from "./CategoryLinks";
+import { links } from "../utils/links";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,18 +49,11 @@ function Navbar() {
         />
 
         <ul className="hidden space-x-6 text-xs font-bold uppercase tracking-[2.5px] text-white lg:flex">
-          <li className="duration-200 hover:text-accent">
-            <Link href="/">home</Link>
-          </li>
-          <li className="duration-200 hover:text-accent">
-            <Link href="/headphones">headphones</Link>
-          </li>
-          <li className="duration-200 hover:text-accent">
-            <Link href="/speakers">speakers</Link>
-          </li>
-          <li className="duration-200 hover:text-accent">
-            <Link href="/earphones">earphones</Link>
-          </li>
+          {links.map((link) => (
+            <li className="duration-200 hover:text-accent" key={link.id}>
+              <Link href={link.url}>{link.text}</Link>
+            </li>
+          ))}
         </ul>
 
         <button>

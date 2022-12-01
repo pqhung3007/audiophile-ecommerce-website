@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SocialLinks from "./SocialLinks";
+import { links } from "../utils/links";
 
 function Footer() {
   return (
@@ -16,18 +17,11 @@ function Footer() {
         />
 
         <ul className="flex flex-col space-y-6 text-center text-xs font-bold uppercase tracking-[2.5px] text-white md:flex-row md:space-y-0 md:space-x-6">
-          <li className="duration-200 hover:text-accent">
-            <Link href="/">home</Link>
-          </li>
-          <li className="duration-200 hover:text-accent">
-            <Link href="/headphones">headphones</Link>
-          </li>
-          <li className="duration-200 hover:text-accent">
-            <Link href="/speakers">speakers</Link>
-          </li>
-          <li className="duration-200 hover:text-accent">
-            <Link href="/earphones">earphones</Link>
-          </li>
+          {links.map((link) => (
+            <li className="duration-200 hover:text-accent" key={link.id}>
+              <Link href={link.url}>{link.text}</Link>
+            </li>
+          ))}
         </ul>
       </div>
 
