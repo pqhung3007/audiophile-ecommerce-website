@@ -16,7 +16,7 @@ function BestGear() {
           <img
             src="/assets/shared/mobile/image-best-gear.jpg"
             alt="best gear"
-            className="rounded-lg"
+            className="w-full rounded-lg"
           />
         </picture>
       </div>
