@@ -1,12 +1,14 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import CategoryLinks from "../CategoryLinks";
 import { links } from "../../utils/links";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
+  const { asPath } = useRouter();
 
   useEffect(() => {
     isOpen
@@ -50,7 +52,12 @@ function Navbar() {
 
         <ul className="hidden space-x-6 text-xs font-bold uppercase tracking-[2.5px] text-white lg:flex">
           {links.map((link) => (
-            <li className="duration-200 hover:text-accent" key={link.id}>
+            <li
+              className={`duration-200 hover:text-accent ${
+                asPath === link.url ? "text-accent" : ""
+              }`}
+              key={link.id}
+            >
               <Link href={link.url}>{link.text}</Link>
             </li>
           ))}
