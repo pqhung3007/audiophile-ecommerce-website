@@ -2,23 +2,28 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import Params from "../../models/Params";
 import { Product } from "../../models/Product";
-import { getProductsByCategory } from "../../utils/product";
+import { getCategories, getProductsByCategory } from "../../utils/product";
 
 function CategoryPage({ products }: { products: Product[] }) {
   console.log(products);
   return (
     <div>
       {products.map((product) => (
-        <h1 key={product.id}>{product.name}</h1>
+        <>
+          <h1 key={product.id}>{product.name}</h1>
+          <p>{product.description}</p>
+        </>
       ))}
     </div>
   );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = ["headphones", "speakers", "earphones"].map((category) => ({
+  const categories = getCategories();
+  const paths = categories.map((category) => ({
     params: { category },
   }));
+
   return {
     paths,
     fallback: false,

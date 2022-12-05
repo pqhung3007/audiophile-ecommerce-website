@@ -12,3 +12,8 @@ export const readData = (): Product[] => {
 export const getProductsByCategory = (category: string): Product[] => {
   return readData().filter((product) => product.category === category);
 };
+
+export const getCategories = (): string[] => {
+  const category = readData().map((product) => product.category);
+  return category;
+};
