@@ -15,14 +15,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
       <Hero />
       <main className="mx-auto max-w-7xl px-6 pt-32 lg:px-16">
         <CategoryLinks />
         <ProductShowcase />
         <BestGear />
       </main>
-      <Footer />
     </div>
   );
 }
