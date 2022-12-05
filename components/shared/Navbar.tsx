@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import CategoryLinks from "./CategoryLinks";
-import { links } from "../utils/links";
+import CategoryLinks from "../CategoryLinks";
+import { links } from "../../utils/links";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,9 +1,9 @@
 import Head from "next/head";
 import BestGear from "../components/BestGear";
 import CategoryLinks from "../components/CategoryLinks";
-import Footer from "../components/Footer";
+import Footer from "../components/shared/Footer";
 import Hero from "../components/Hero";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/shared/Navbar";
 import ProductShowcase from "../components/ProductShowcase";
 
 export default function Home() {
