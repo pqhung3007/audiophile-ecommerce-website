@@ -1,20 +1,34 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
+import { useRouter } from "next/router";
 import React from "react";
 import Params from "../../models/Params";
 import { Product } from "../../models/Product";
 import { getCategories, getProductsByCategory } from "../../utils/product";
 
 function CategoryPage({ products }: { products: Product[] }) {
-  console.log(products);
+  const router = useRouter();
+  let { category } = router.query;
+  if (category) {
+    category =
+      category?.toString().charAt(0).toUpperCase() +
+      category?.toString().slice(1);
+  }
+
   return (
-    <div>
-      {products.map((product) => (
-        <>
-          <h1 key={product.id}>{product.name}</h1>
-          <p>{product.description}</p>
-        </>
-      ))}
-    </div>
+    <>
+      <Head>
+        <title>{`Audiophile - ${category}`}</title>
+      </Head>
+      <div>
+        {products.map((product) => (
+          <>
+            <h1 key={product.id}>{product.name}</h1>
+            <p>{product.description}</p>
+          </>
+        ))}
+      </div>
+    </>
   );
 }
 
