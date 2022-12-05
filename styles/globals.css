@@ -32,13 +32,3 @@
       "b .";
   }
 }
-
-.decoration-line {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 5px;
-  width: 6rem;
-  background-color: #fbaf85;
-}

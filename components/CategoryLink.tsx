@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 interface CategoryProps {
   text: string;
@@ -8,7 +7,7 @@ interface CategoryProps {
   imageLink: string;
 }
 
-function CategoryLink({ text, url, imageLink }: CategoryProps) {
+export default function CategoryLink({ text, url, imageLink }: CategoryProps) {
   return (
     <Link
       className="group relative flex flex-1 flex-col items-center justify-center rounded-lg bg-product pt-24 pb-6"
@@ -35,5 +34,3 @@ function CategoryLink({ text, url, imageLink }: CategoryProps) {
     </Link>
   );
 }
-
-export default CategoryLink;

@@ -1,7 +1,6 @@
 import Link from "next/link";
-import React from "react";
 
-function SocialLinks() {
+export default function SocialLinks() {
   return (
     <div className="grid-c flex justify-center gap-4 md:justify-end lg:items-end">
       <Link href="/">
@@ -46,5 +45,3 @@ function SocialLinks() {
     </div>
   );
 }
-
-export default SocialLinks;

@@ -1,6 +1,4 @@
-import React from "react";
-
-function Hero() {
+export default function Hero() {
   return (
     <div className="relative">
       <picture>
@@ -39,5 +37,3 @@ function Hero() {
     </div>
   );
 }
-
-export default Hero;

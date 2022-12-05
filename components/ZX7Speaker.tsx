@@ -1,6 +1,4 @@
-import React from "react";
-
-function ZX7Speaker() {
+export default function ZX7Speaker() {
   return (
     <div className="relative">
       <picture>
@@ -28,5 +26,3 @@ function ZX7Speaker() {
     </div>
   );
 }
-
-export default ZX7Speaker;

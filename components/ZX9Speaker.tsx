@@ -1,6 +1,4 @@
-import React from "react";
-
-function ZX9Speaker() {
+export default function ZX9Speaker() {
   return (
     <div className="flex flex-col rounded-lg bg-accent bg-pattern-circles bg-cover bg-left-top py-8 lg:flex-row lg:pt-20 lg:pb-0">
       <picture>
@@ -34,5 +32,3 @@ function ZX9Speaker() {
     </div>
   );
 }
-
-export default ZX9Speaker;

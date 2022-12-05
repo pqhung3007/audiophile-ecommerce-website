@@ -1,6 +1,4 @@
-import React from "react";
-
-function BestGear() {
+export default function BestGear() {
   return (
     <div className="flex flex-col items-center justify-center gap-12 pb-24 lg:flex-row-reverse">
       <div className="flex-1">
@@ -38,5 +36,3 @@ function BestGear() {
     </div>
   );
 }
-
-export default BestGear;

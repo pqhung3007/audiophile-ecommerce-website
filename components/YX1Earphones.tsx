@@ -1,6 +1,4 @@
-import React from "react";
-
-function YX1Earphones() {
+export default function YX1Earphones() {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
       <picture>
@@ -28,5 +26,3 @@ function YX1Earphones() {
     </div>
   );
 }
-
-export default YX1Earphones;

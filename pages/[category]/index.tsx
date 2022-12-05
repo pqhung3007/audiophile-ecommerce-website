@@ -1,12 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React from "react";
 import Params from "../../models/Params";
 import { Product } from "../../models/Product";
 import { getCategories, getProductsByCategory } from "../../utils/product";
 
-function CategoryPage({ products }: { products: Product[] }) {
+export default function CategoryPage({ products }: { products: Product[] }) {
   const router = useRouter();
   let { category } = router.query;
   if (category) {
@@ -56,5 +55,3 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   };
 };
-
-export default CategoryPage;
