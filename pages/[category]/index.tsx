@@ -25,9 +25,12 @@ export default function CategoryPage({ products }: { products: Product[] }) {
       <h1 className="bg-black py-12 text-center text-heading4 uppercase tracking-wider text-white md:text-heading2">
         {category}
       </h1>
-      <ProductList products={products} />
-      <CategoryLinks />
-      <BestGear />
+
+      <main className="mx-auto max-w-7xl px-6 pt-12">
+        <ProductList products={products} />
+        <CategoryLinks />
+        <BestGear />
+      </main>
     </>
   );
 }
