@@ -43,12 +43,14 @@ function Navbar() {
           />
         </button>
 
-        <Image
-          src="/assets/shared/desktop/logo.svg"
-          alt="logo"
-          width={143}
-          height={25}
-        />
+        <Link href="/">
+          <Image
+            src="/assets/shared/desktop/logo.svg"
+            alt="logo"
+            width={143}
+            height={25}
+          />
+        </Link>
 
         <ul className="hidden space-x-6 text-xs font-bold uppercase tracking-[2.5px] text-white lg:flex">
           {links.map((link) => (
