@@ -10,7 +10,9 @@ export const readData = (): Product[] => {
 };
 
 export const getProductsByCategory = (category: string): Product[] => {
-  return readData().filter((product) => product.category === category);
+  return readData()
+    .filter((product) => product.category === category)
+    .sort((a, b) => Number(b.new) - Number(a.new));
 };
 
 export const getCategories = (): string[] => {

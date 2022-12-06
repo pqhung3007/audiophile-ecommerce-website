@@ -28,7 +28,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="z-30 flex h-16 w-full items-center justify-between bg-black px-6 lg:px-16">
+      <div className="z-30 flex h-16 w-full items-center justify-between border-b border-gray-800 bg-black px-6 lg:px-16">
         {/* Hamburger */}
         <button className="block lg:hidden" onClick={handleOpenMenu}>
           <Image
