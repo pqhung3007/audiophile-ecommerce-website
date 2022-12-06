@@ -32,3 +32,13 @@
       "b .";
   }
 }
+
+@media (min-width: 1024px) {
+  .product:nth-of-type(even) > div:nth-of-type(1) {
+    margin-left: 4rem;
+  }
+
+  .product:nth-of-type(odd) > div:nth-of-type(2) {
+    margin-left: 4rem;
+  }
+}

@@ -1,6 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import BestGear from "../../components/BestGear";
+import CategoryLinks from "../../components/CategoryLinks";
+import ProductList from "../../components/ProductList";
 import Params from "../../models/Params";
 import { Product } from "../../models/Product";
 import { getCategories, getProductsByCategory } from "../../utils/product";
@@ -19,14 +22,12 @@ export default function CategoryPage({ products }: { products: Product[] }) {
       <Head>
         <title>{`Audiophile - ${category}`}</title>
       </Head>
-      <div>
-        {products.map((product) => (
-          <>
-            <h1 key={product.id}>{product.name}</h1>
-            <p>{product.description}</p>
-          </>
-        ))}
-      </div>
+      <h1 className="bg-black py-12 text-center text-heading4 uppercase tracking-wider text-white md:text-heading2">
+        {category}
+      </h1>
+      <ProductList products={products} />
+      <CategoryLinks />
+      <BestGear />
     </>
   );
 }
