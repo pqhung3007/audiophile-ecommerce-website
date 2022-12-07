@@ -46,6 +46,9 @@ module.exports = {
           lineHeight: '1.5rem'
         }]
       },
+      gridTemplateColumns: {
+        'item-grid': '2rem 1fr'
+      },
       backgroundImage: {
         'pattern-circles': "url('/assets/home/desktop/pattern-circles.svg')"
       }

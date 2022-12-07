@@ -12,7 +12,7 @@ export interface Product {
   price: number;
   description?: string;
   features?: string;
-  includedItems?: IncludedItem[];
+  includes?: IncludedItem[];
   gallery?: Gallery;
   others?: Other[];
 }
