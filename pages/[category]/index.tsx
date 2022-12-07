@@ -30,7 +30,7 @@ export default function CategoryPage({ products }: { products: Product[] }) {
         {category}
       </h1>
 
-      <main className="mx-auto max-w-7xl px-6 pt-12">
+      <main className="mx-auto max-w-7xl px-6 pt-12 lg:px-16">
         <ProductList products={products} />
         <CategoryLinks />
         <BestGear />
