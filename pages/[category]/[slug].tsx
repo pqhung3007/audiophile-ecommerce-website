@@ -4,6 +4,10 @@ import Params from "../../models/Params";
 import { Product } from "../../models/Product";
 import { getProductDetails, getProductsPath } from "../../utils/product";
 
+type Props = {
+  product: Product;
+};
+
 export default function ProductDetail() {
   return (
     <>
@@ -28,11 +32,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  /* add Params by this reference 
-  https://wallis.dev/blog/nextjs-getstaticprops-and-getstaticpaths-with-typescript */
-  const params = context.params as Params;
-  const product: Product | undefined = getProductDetails(params.slug);
+export const getStaticProps: GetStaticProps<Props, Params> = async (
+  context
+) => {
+  /* context params reference:
+   https://github.com/vercel/next.js/discussions/16522 */
+  const params = context.params;
+  const product = getProductDetails(params!.slug);
 
   return {
     props: {

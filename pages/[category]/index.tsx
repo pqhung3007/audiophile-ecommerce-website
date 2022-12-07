@@ -8,6 +8,10 @@ import Params from "../../models/Params";
 import { Product } from "../../models/Product";
 import { getCategories, getProductsByCategory } from "../../utils/product";
 
+type Props = {
+  products: Product[];
+};
+
 export default function CategoryPage({ products }: { products: Product[] }) {
   const router = useRouter();
   let { category } = router.query;
@@ -47,11 +51,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  /* add Params by this reference 
-  https://wallis.dev/blog/nextjs-getstaticprops-and-getstaticpaths-with-typescript */
-  const params = context.params as Params;
-  const products: Product[] = getProductsByCategory(params.category);
+export const getStaticProps: GetStaticProps<Props, Params> = async (
+  context
+) => {
+  /* context params reference:
+   https://github.com/vercel/next.js/discussions/16522 */
+  const params = context.params;
+  const products = getProductsByCategory(params!.category);
 
   return {
     props: {
