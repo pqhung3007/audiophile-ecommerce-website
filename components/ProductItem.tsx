@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Product } from "../models/Product";
+import NavigatingButton from "./NavigatingButton";
 
 export default function ProductItem({
   slug,
@@ -34,9 +35,7 @@ export default function ProductItem({
         <p className="max-w-md text-neutral-500">{description}</p>
 
         <Link href={`/${category}/${slug}`}>
-          <button className="mt-6 border-none bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white duration-200 hover:bg-accent-hover">
-            see product
-          </button>
+          <NavigatingButton text="see product" />
         </Link>
       </div>
     </div>

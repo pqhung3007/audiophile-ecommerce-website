@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Product } from "../models/Product";
 import Gallery from "./Gallery";
+import NavigatingButton from "./NavigatingButton";
 import OtherProducts from "./OtherProducts";
 import ProductQuantity from "./ProductQuantity";
 
@@ -57,9 +58,7 @@ export default function ProductDetail({
               decrement={handleDecrement}
             />
 
-            <button className="border-none bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white duration-200 hover:bg-accent-hover">
-              add to cart
-            </button>
+            <NavigatingButton text="add to cart" />
           </div>
         </div>
       </div>
