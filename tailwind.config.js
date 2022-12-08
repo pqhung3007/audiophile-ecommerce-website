@@ -47,7 +47,8 @@ module.exports = {
         }]
       },
       gridTemplateColumns: {
-        'item-grid': '2rem 1fr'
+        'in-the-box': '2rem 1fr',
+        'gallery': '40% 1fr'
       },
       backgroundImage: {
         'pattern-circles': "url('/assets/home/desktop/pattern-circles.svg')"

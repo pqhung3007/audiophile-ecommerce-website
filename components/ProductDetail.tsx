@@ -1,5 +1,6 @@
-import React from "react";
 import { Product } from "../models/Product";
+import Gallery from "./Gallery";
+import OtherProducts from "./OtherProducts";
 
 export default function ProductDetail({
   name,
@@ -9,6 +10,8 @@ export default function ProductDetail({
   image,
   features,
   includes,
+  gallery,
+  others,
 }: Product) {
   return (
     <>
@@ -41,21 +44,21 @@ export default function ProductDetail({
       </div>
 
       {/* Product Feature */}
-      <div className="flex flex-col gap-10 py-20 lg:flex-row lg:gap-40">
+      <div className="flex flex-col gap-10 py-20 lg:flex-row lg:gap-32">
         <div className="lg:w-[42rem]">
           <h3 className="mb-8 text-heading5 uppercase md:text-heading3">
             features
           </h3>
           <p className="whitespace-pre-line text-neutral-500">{features}</p>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col md:flex-row md:gap-60 lg:flex-col lg:gap-0">
           <h3 className="mb-8 text-heading5 uppercase md:text-heading3">
             in the box
           </h3>
           <div className="space-y-2">
             {includes?.map((item) => (
               <div
-                className="grid auto-rows-auto grid-cols-item-grid"
+                className="grid auto-rows-auto grid-cols-in-the-box"
                 key={item.item}
               >
                 <span className="font-bold text-accent">{item.quantity}x</span>
@@ -65,6 +68,9 @@ export default function ProductDetail({
           </div>
         </div>
       </div>
+
+      <Gallery {...gallery} />
+      <OtherProducts others={others} />
     </>
   );
 }
