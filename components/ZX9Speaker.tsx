@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ZX9Speaker() {
   return (
     <div className="flex flex-col rounded-lg bg-accent bg-pattern-circles bg-cover bg-left-top py-8 lg:flex-row lg:pt-20 lg:pb-0">
@@ -25,9 +27,12 @@ export default function ZX9Speaker() {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </p>
-        <button className="border-none bg-black px-6 py-3 text-sm font-bold uppercase tracking-wider text-white duration-200 hover:bg-[#4C4C4C]">
-          see product
-        </button>
+
+        <Link href="/speakers/zx9-speaker">
+          <button className="border-none bg-black px-6 py-3 text-sm font-bold uppercase tracking-wider text-white duration-200 hover:bg-[#4C4C4C]">
+            see product
+          </button>
+        </Link>
       </div>
     </div>
   );

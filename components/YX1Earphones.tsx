@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function YX1Earphones() {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -19,9 +21,11 @@ export default function YX1Earphones() {
 
       <div className="flex flex-col items-start justify-center rounded-lg bg-product px-8 py-16 md:px-16">
         <h3 className="mb-6 text-heading4 uppercase">yx1 earphones</h3>
-        <button className=" border border-black bg-transparent px-6 py-3 text-sm font-bold uppercase tracking-wider duration-200 hover:bg-black hover:text-white">
-          see product
-        </button>
+        <Link href="/earphones/yx1-earphones">
+          <button className="border-none bg-black px-6 py-3 text-sm font-bold uppercase tracking-wider text-white duration-200 hover:bg-[#4C4C4C]">
+            see product
+          </button>
+        </Link>
       </div>
     </div>
   );

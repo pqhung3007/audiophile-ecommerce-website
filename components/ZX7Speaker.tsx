@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ZX7Speaker() {
   return (
     <div className="relative">
@@ -19,9 +21,11 @@ export default function ZX7Speaker() {
 
       <div className="absolute top-1/2 left-8 -translate-y-1/2 md:left-16">
         <h3 className="mb-6 text-heading4 uppercase">zx7 speaker</h3>
-        <button className=" border border-black bg-transparent px-6 py-3 text-sm font-bold uppercase tracking-wider duration-200 hover:bg-black hover:text-white">
-          see product
-        </button>
+        <Link href="/speakers/zx7-speaker">
+          <button className="border-none bg-black px-6 py-3 text-sm font-bold uppercase tracking-wider text-white duration-200 hover:bg-[#4C4C4C]">
+            see product
+          </button>
+        </Link>
       </div>
     </div>
   );
