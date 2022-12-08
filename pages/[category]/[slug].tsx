@@ -18,7 +18,7 @@ export default function ProductDetailPage({ product }: { product: Product }) {
   return (
     <>
       <Head>
-        <title>Hello</title>
+        <title>{product.name}</title>
       </Head>
 
       <main className="mx-auto max-w-7xl px-6 pt-6 lg:px-16">
