@@ -1,6 +1,8 @@
+import React, { useState } from "react";
 import { Product } from "../models/Product";
 import Gallery from "./Gallery";
 import OtherProducts from "./OtherProducts";
+import ProductQuantity from "./ProductQuantity";
 
 export default function ProductDetail({
   name,
@@ -13,6 +15,11 @@ export default function ProductDetail({
   gallery,
   others,
 }: Product) {
+  const [quantity, setQuantity] = useState(1);
+
+  const handleDecrement = () => setQuantity((current) => current - 1);
+  const handleIncrement = () => setQuantity((current) => current + 1);
+
   return (
     <>
       {/* Product Intro */}
@@ -39,7 +46,21 @@ export default function ProductDetail({
 
           <h2 className="max-w-xs text-heading4 md:text-heading2">{name}</h2>
           <p className="max-w-md text-neutral-500">{description}</p>
-          <p className="text-heading6">$ {price.toLocaleString("en-US")}</p>
+          <small className="text-heading6">
+            $ {price.toLocaleString("en-US")}
+          </small>
+
+          <div className="flex gap-4">
+            <ProductQuantity
+              quantity={quantity}
+              increment={handleIncrement}
+              decrement={handleDecrement}
+            />
+
+            <button className="border-none bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white duration-200 hover:bg-accent-hover">
+              add to cart
+            </button>
+          </div>
         </div>
       </div>
 
