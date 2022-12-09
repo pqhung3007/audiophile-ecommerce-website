@@ -8,10 +8,11 @@ export default function CheckoutPage() {
       <Head>
         <title>Checkout</title>
       </Head>
-      <main className="mx-auto max-w-7xl bg-product px-6 pb-20 pt-6 md:px-12 lg:px-16">
-        <BackButton />
-
-        <CheckoutForm />
+      <main className="bg-product">
+        <div className="mx-auto max-w-7xl px-6 pb-20 pt-6 md:px-12 lg:px-16">
+          <BackButton />
+          <CheckoutForm />
+        </div>
       </main>
     </>
   );
