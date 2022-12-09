@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Other } from "../models/Product";
-import NavigatingButton from "./NavigatingButton";
+import ForwardButton from "./ForwardButton";
 
 interface OtherProps {
   others: Other[] | undefined;
@@ -36,7 +36,7 @@ export default function OtherProducts({ others }: OtherProps) {
               <h3 className="text-heading5 uppercase">{name}</h3>
 
               <Link href={`/${slug}`}>
-                <NavigatingButton text="see product" />
+                <ForwardButton text="see product" />
               </Link>
             </li>
           );

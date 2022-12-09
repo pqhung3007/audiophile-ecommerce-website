@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NavigatingButton from "./NavigatingButton";
+import ForwardButton from "./ForwardButton";
 
 export default function Hero() {
   return (
@@ -34,7 +34,7 @@ export default function Hero() {
           </p>
 
           <Link href="/headphones">
-            <NavigatingButton text="see product" />
+            <ForwardButton text="see product" />
           </Link>
         </div>
       </div>

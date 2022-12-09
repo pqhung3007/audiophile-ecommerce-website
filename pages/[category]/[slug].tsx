@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
 import Head from "next/head";
 import Params from "../../models/Params";
 import { Product } from "../../models/Product";
@@ -7,14 +6,13 @@ import { getProductDetails, getProductsPath } from "../../utils/product";
 import ProductDetail from "../../components/ProductDetail";
 import CategoryLinks from "../../components/CategoryLinks";
 import BestGear from "../../components/BestGear";
+import BackButton from "../../components/BackButton";
 
 type Props = {
   product: Product;
 };
 
 export default function ProductDetailPage({ product }: { product: Product }) {
-  const router = useRouter();
-
   return (
     <>
       <Head>
@@ -22,13 +20,7 @@ export default function ProductDetailPage({ product }: { product: Product }) {
       </Head>
 
       <main className="mx-auto max-w-7xl px-6 pt-6 lg:px-16">
-        <button
-          className="text-neutral-500 duration-200 hover:text-accent-hover"
-          onClick={() => router.back()}
-        >
-          Go Back
-        </button>
-
+        <BackButton />
         <ProductDetail {...product} />
         <CategoryLinks />
         <BestGear />

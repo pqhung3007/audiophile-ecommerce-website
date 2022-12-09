@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Product } from "../models/Product";
 import Gallery from "./Gallery";
-import NavigatingButton from "./NavigatingButton";
+import ForwardButton from "./ForwardButton";
 import OtherProducts from "./OtherProducts";
 import ProductQuantity from "./ProductQuantity";
 
@@ -58,7 +58,7 @@ export default function ProductDetail({
               decrement={handleDecrement}
             />
 
-            <NavigatingButton text="add to cart" />
+            <ForwardButton text="add to cart" />
           </div>
         </div>
       </div>

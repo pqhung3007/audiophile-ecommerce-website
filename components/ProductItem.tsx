@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Product } from "../models/Product";
-import NavigatingButton from "./NavigatingButton";
+import ForwardButton from "./ForwardButton";
 
 export default function ProductItem({
   slug,
@@ -35,7 +35,7 @@ export default function ProductItem({
         <p className="max-w-md text-neutral-500">{description}</p>
 
         <Link href={`/${category}/${slug}`}>
-          <NavigatingButton text="see product" />
+          <ForwardButton text="see product" />
         </Link>
       </div>
     </div>
