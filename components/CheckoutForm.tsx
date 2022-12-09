@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import FormField from "./shared/FormField";
+import RadioPayment from "./RadioGroupPayment";
 
 export default function CheckoutForm() {
-  const options = ["e-Money", "Cash on Delivery"];
-  const [paymentMethod, setPaymentMethod] = useState(options[0]);
+  const [paymentMethod, setPaymentMethod] = useState("e-Money");
 
   return (
     <div className="rounded-lg bg-white px-8 pt-12 pb-8">
@@ -51,11 +52,40 @@ export default function CheckoutForm() {
           <legend className="mb-4 text-sm font-bold uppercase tracking-widest text-accent">
             payment details
           </legend>
-          <div className="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2">
-            <label htmlFor="name" className="mb-2 block text-xs font-bold">
-              Payment Method
-            </label>
+          <div className="mb-8 grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-4">
+            <p className="mb-4 block text-xs font-bold">Payment Method</p>
+
+            <RadioPayment
+              paymentMethod={paymentMethod}
+              setPaymentMethod={setPaymentMethod}
+            />
           </div>
+
+          {paymentMethod === "e-Money" ? (
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <FormField
+                label="e-Money Number"
+                type="text"
+                placeholder="347589510"
+              />
+              <FormField label="e-Money PIN" type="text" placeholder="6891" />
+            </div>
+          ) : (
+            <div className="flex items-center space-x-8">
+              <Image
+                src="/assets/checkout/icon-cash-on-delivery.svg"
+                alt="cod"
+                width={48}
+                height={48}
+              />
+              <p className="pr-4 text-sm text-neutral-500">
+                The ‘Cash on Delivery’ option enables you to pay in cash when
+                our delivery courier arrives at your residence. Just make sure
+                your address is correct so that your order will not be
+                cancelled.
+              </p>
+            </div>
+          )}
         </fieldset>
       </div>
     </div>
