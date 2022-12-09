@@ -7,7 +7,7 @@ export default function CheckoutForm() {
   const [paymentMethod, setPaymentMethod] = useState("e-Money");
 
   return (
-    <div className="rounded-lg bg-white px-8 pt-12 pb-8">
+    <div className="rounded-lg bg-white px-8 py-12 md:pb-4">
       <h2 className="mb-4 text-heading4 uppercase md:text-heading3 ">
         checkout
       </h2>
@@ -61,31 +61,33 @@ export default function CheckoutForm() {
             />
           </div>
 
-          {paymentMethod === "e-Money" ? (
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <FormField
-                label="e-Money Number"
-                type="text"
-                placeholder="347589510"
-              />
-              <FormField label="e-Money PIN" type="text" placeholder="6891" />
-            </div>
-          ) : (
-            <div className="flex items-center space-x-8">
-              <Image
-                src="/assets/checkout/icon-cash-on-delivery.svg"
-                alt="cod"
-                width={48}
-                height={48}
-              />
-              <p className="pr-4 text-sm text-neutral-500">
-                The ‘Cash on Delivery’ option enables you to pay in cash when
-                our delivery courier arrives at your residence. Just make sure
-                your address is correct so that your order will not be
-                cancelled.
-              </p>
-            </div>
-          )}
+          <div className="h-40 md:h-28">
+            {paymentMethod === "e-Money" ? (
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <FormField
+                  label="e-Money Number"
+                  type="text"
+                  placeholder="347589510"
+                />
+                <FormField label="e-Money PIN" type="text" placeholder="6891" />
+              </div>
+            ) : (
+              <div className="flex items-start space-x-8">
+                <Image
+                  src="/assets/checkout/icon-cash-on-delivery.svg"
+                  alt="cod"
+                  width={48}
+                  height={48}
+                />
+                <p className="pr-4 text-sm text-neutral-500">
+                  The ‘Cash on Delivery’ option enables you to pay in cash when
+                  our delivery courier arrives at your residence. Just make sure
+                  your address is correct so that your order will not be
+                  cancelled.
+                </p>
+              </div>
+            )}
+          </div>
         </fieldset>
       </div>
     </div>
