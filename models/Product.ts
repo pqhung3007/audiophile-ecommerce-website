@@ -39,3 +39,11 @@ export interface Other {
   name: string;
   image: CategoryImage;
 }
+
+export interface CartItems {
+  id: number;
+  name: string;
+  image: string;
+  price: number;
+  quantity: number;
+}

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Product } from "../models/Product";
+import { addItemToCart } from "../features/cartSlice";
+import { useDispatch } from "react-redux";
 import Gallery from "./Gallery";
 import ForwardButton from "./ForwardButton";
 import OtherProducts from "./OtherProducts";
 import ProductQuantity from "./ProductQuantity";
 
 export default function ProductDetail({
+  id,
   name,
   description,
   new: isNew,
@@ -20,6 +23,19 @@ export default function ProductDetail({
 
   const handleDecrement = () => setQuantity((current) => current - 1);
   const handleIncrement = () => setQuantity((current) => current + 1);
+
+  const dispatch = useDispatch();
+  const handleAddItem = () => {
+    dispatch(
+      addItemToCart({
+        id: id,
+        name: name,
+        image: image?.desktop,
+        price: price,
+        quantity,
+      })
+    );
+  };
 
   return (
     <>
@@ -58,7 +74,12 @@ export default function ProductDetail({
               decrement={handleDecrement}
             />
 
-            <ForwardButton text="add to cart" />
+            <button
+              className="border-none bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white duration-200 hover:bg-accent-hover"
+              onClick={handleAddItem}
+            >
+              add to cart
+            </button>
           </div>
         </div>
       </div>
