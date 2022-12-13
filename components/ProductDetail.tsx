@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Product } from "../models/Product";
 import { addItemToCart } from "../features/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Gallery from "./Gallery";
-import ForwardButton from "./ForwardButton";
+import { Product } from "../models/Product";
 import OtherProducts from "./OtherProducts";
 import ProductQuantity from "./ProductQuantity";
 
