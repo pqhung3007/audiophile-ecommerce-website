@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { addItemToCart } from "../features/cartSlice";
+import { toast } from "react-toastify";
+import { addItemToCart, totalPrice } from "../features/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Gallery from "./Gallery";
 import { Product } from "../models/Product";
@@ -34,7 +35,11 @@ export default function ProductDetail({
         quantity,
       })
     );
+    toast.success("Product added to cart!");
   };
+
+  const total = useSelector(totalPrice);
+  console.log(total);
 
   return (
     <>
