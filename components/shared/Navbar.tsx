@@ -6,9 +6,11 @@ import { useRouter } from "next/router";
 import CategoryLinks from "../CategoryLinks";
 import { links } from "../../utils/links";
 import { totalQuantity } from "../../features/cartSlice";
+import CartDialog from "../CartDialog";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const menuRef = useRef(null);
   const { asPath } = useRouter();
   const quantity = useSelector(totalQuantity);
@@ -68,7 +70,10 @@ function Navbar() {
           ))}
         </ul>
 
-        <button className="relative">
+        <button
+          className="relative"
+          onClick={() => setIsModalOpen((current) => !current)}
+        >
           <Image
             src="/assets/shared/desktop/icon-cart.svg"
             alt="logo"
@@ -93,6 +98,9 @@ function Navbar() {
           </div>
         </div>
       ) : null}
+
+      {/* Cart Dialog */}
+      <CartDialog isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </>
   );
 }

@@ -73,5 +73,6 @@ export const {
 
 export const totalQuantity = (state: RootState) => state.cart.totalQuantity;
 export const totalPrice = (state: RootState) => state.cart.totalPrice;
+export const cartItems = (state: RootState) => state.cart.cartItems;
 
 export default cartSlice.reducer;

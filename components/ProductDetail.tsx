@@ -38,9 +38,6 @@ export default function ProductDetail({
     toast.success("Product added to cart!");
   };
 
-  const total = useSelector(totalPrice);
-  console.log(total);
-
   return (
     <>
       {/* Product Intro */}
