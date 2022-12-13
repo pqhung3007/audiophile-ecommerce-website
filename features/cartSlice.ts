@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "./store";
 import { CartItems } from "../models/Product";
 
 interface CartSlice {
@@ -20,19 +21,19 @@ const cartSlice = createSlice({
     clearCart: () => {
       return initialState;
     },
-    addItemToCart: (state, action) => {
+    addItemToCart: (state, action: PayloadAction<CartItems>) => {
       const addedItem = action.payload;
       const existingItem = state.cartItems.find(
         (item) => item.id === addedItem.id
       );
-      state.totalQuantity += addedItem.quantity;
-      state.totalPrice += addedItem.quantity * addedItem.price;
-
       existingItem
         ? (existingItem.quantity += addedItem.quantity)
         : state.cartItems.push(addedItem);
+
+      state.totalQuantity += addedItem.quantity;
+      state.totalPrice += addedItem.quantity * addedItem.price;
     },
-    increaseQuantity: (state, action) => {
+    increaseQuantity: (state, action: PayloadAction<number>) => {
       const existingItem = state.cartItems.find(
         (item) => item.id === action.payload
       );
@@ -40,7 +41,7 @@ const cartSlice = createSlice({
         existingItem.quantity += 1;
       }
     },
-    decreaseQuantity: (state, action) => {
+    decreaseQuantity: (state, action: PayloadAction<number>) => {
       const existingItem = state.cartItems.find(
         (item) => item.id === action.payload
       );
@@ -62,6 +63,15 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItemToCart, clearCart, increaseQuantity, decreaseQuantity } =
-  cartSlice.actions;
+export const {
+  addItemToCart,
+  clearCart,
+  increaseQuantity,
+  decreaseQuantity,
+  calculateTotal,
+} = cartSlice.actions;
+
+export const totalQuantity = (state: RootState) => state.cart.totalQuantity;
+export const totalPrice = (state: RootState) => state.cart.totalPrice;
+
 export default cartSlice.reducer;
