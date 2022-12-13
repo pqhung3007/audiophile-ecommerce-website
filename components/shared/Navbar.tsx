@@ -1,14 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import CategoryLinks from "../CategoryLinks";
 import { links } from "../../utils/links";
+import { totalQuantity } from "../../features/cartSlice";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const { asPath } = useRouter();
+  const quantity = useSelector(totalQuantity);
 
   useEffect(() => {
     isOpen
@@ -65,13 +68,16 @@ function Navbar() {
           ))}
         </ul>
 
-        <button>
+        <button className="relative">
           <Image
             src="/assets/shared/desktop/icon-cart.svg"
             alt="logo"
             width={23}
             height={20}
           />
+          <span className="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] text-white">
+            {quantity}
+          </span>
         </button>
       </div>
 
