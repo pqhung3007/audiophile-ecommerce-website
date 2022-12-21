@@ -4,13 +4,11 @@ import { CartItems } from "../models/Product";
 
 interface CartSlice {
   cartItems: CartItems[];
-  totalPrice: number;
   totalQuantity: number;
 }
 
 const initialState: CartSlice = {
   cartItems: [],
-  totalPrice: 0,
   totalQuantity: 0,
 };
 
@@ -31,48 +29,46 @@ const cartSlice = createSlice({
         : state.cartItems.push(addedItem);
 
       state.totalQuantity += addedItem.quantity;
-      state.totalPrice += addedItem.quantity * addedItem.price;
     },
     increaseQuantity: (state, action: PayloadAction<number>) => {
-      const existingItem = state.cartItems.find(
-        (item) => item.id === action.payload
-      );
-      if (existingItem) {
-        existingItem.quantity += 1;
-      }
+      state.totalQuantity++;
+      const newCart = state.cartItems.map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+      state.cartItems = newCart;
     },
     decreaseQuantity: (state, action: PayloadAction<number>) => {
-      const existingItem = state.cartItems.find(
-        (item) => item.id === action.payload
-      );
-      if (existingItem) {
-        existingItem.quantity -= 1;
-        state.cartItems.filter((item) => item.quantity > 0);
-      }
-    },
-    calculateTotal: (state) => {
-      let quantity = 0;
-      let price = 0;
-      state.cartItems.forEach((item) => {
-        quantity += item.quantity;
-        price += item.quantity * item.price;
-      });
-      state.totalQuantity = quantity;
-      state.totalPrice = price;
+      state.totalQuantity--;
+      const newCart = state.cartItems
+        .map((item) => {
+          if (item.id === action.payload) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return item;
+        })
+        .filter((item) => item.quantity > 0);
+      state.cartItems = newCart;
     },
   },
 });
 
-export const {
-  addItemToCart,
-  clearCart,
-  increaseQuantity,
-  decreaseQuantity,
-  calculateTotal,
-} = cartSlice.actions;
-
 export const totalQuantity = (state: RootState) => state.cart.totalQuantity;
-export const totalPrice = (state: RootState) => state.cart.totalPrice;
+
+export const totalPrice = (state: RootState) => {
+  const total = state.cart.cartItems.reduce((accumulator, currentItem) => {
+    const { price, quantity } = currentItem;
+    accumulator += price * quantity;
+    return accumulator;
+  }, 0);
+  return total;
+};
+
 export const cartItems = (state: RootState) => state.cart.cartItems;
+
+export const { addItemToCart, clearCart, increaseQuantity, decreaseQuantity } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

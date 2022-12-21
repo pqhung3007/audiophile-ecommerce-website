@@ -69,8 +69,8 @@ export default function CartDialog({
                       />
                     </div>
                     <div>
-                      <p className="font-bold">{item.name}</p>
-                      <p className="font-bold text-neutral-500">
+                      <p className="text-sm font-bold">{item.name}</p>
+                      <p className="text-sm font-bold text-neutral-500">
                         $ {item.price}
                       </p>
                     </div>
@@ -88,7 +88,7 @@ export default function CartDialog({
                 <strong className="text-lg">$ {price}</strong>
               </div>
 
-              <button className="w-full border-none bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white duration-200 hover:bg-accent-hover">
+              <button className="mt-4 w-full border-none bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white duration-200 hover:bg-accent-hover">
                 checkout
               </button>
             </div>
