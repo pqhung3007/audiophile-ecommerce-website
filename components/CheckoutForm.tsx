@@ -7,7 +7,7 @@ export default function CheckoutForm() {
   const [paymentMethod, setPaymentMethod] = useState("e-Money");
 
   return (
-    <div className="rounded-lg bg-white px-8 py-12 md:pb-4">
+    <div className="basis-2/3 rounded-lg bg-white px-8 py-12 md:pb-4">
       <h2 className="mb-4 text-heading4 uppercase md:text-heading3 ">
         checkout
       </h2>
