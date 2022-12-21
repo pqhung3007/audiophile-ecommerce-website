@@ -11,6 +11,7 @@ import {
   totalPrice,
 } from "../features/cartSlice";
 import ProductQuantity from "./ProductQuantity";
+import Link from "next/link";
 
 interface DialogProps {
   isModalOpen: boolean;
@@ -88,9 +89,14 @@ export default function CartDialog({
                 <strong className="text-lg">$ {price}</strong>
               </div>
 
-              <button className="mt-4 w-full border-none bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white duration-200 hover:bg-accent-hover">
-                checkout
-              </button>
+              <Link href="/checkout">
+                <button
+                  className="mt-4 w-full border-none bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white duration-200 hover:bg-accent-hover"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  checkout
+                </button>
+              </Link>
             </div>
           ) : (
             <div className="text-center">
