@@ -26,7 +26,7 @@ const FormField = React.forwardRef<HTMLInputElement, FormProps>(
           ref={ref}
           {...other}
           type={type}
-          className="w-full rounded-md border border-gray-200 p-4 text-xs font-semibold placeholder:text-xs focus:border-accent focus:outline-none"
+          className="w-full rounded-md border border-gray-200 p-4 text-xs font-semibold placeholder:text-xs invalid:border-red-500 focus:border-accent focus:outline-none"
           placeholder={placeholder}
         />
       </div>
