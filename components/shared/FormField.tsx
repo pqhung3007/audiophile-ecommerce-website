@@ -3,8 +3,8 @@ interface FormProps {
   label: string;
   type: string;
   placeholder: string;
-  errors: { message: string } | undefined;
-  [attribute: string]: unknown;
+  errors?: { message: string } | undefined;
+  [attribute: string]: any;
 }
 
 const FormField = React.forwardRef<HTMLInputElement, FormProps>(

@@ -31,7 +31,7 @@ export default function CheckoutForm() {
               {...register("name", {
                 required: "Field cannot be empty",
                 pattern: {
-                  value: /[a-zA-Z]+/g,
+                  value: /^[a-zA-Z]*$/gm,
                   message: "Wrong format",
                 },
               })}
@@ -45,20 +45,20 @@ export default function CheckoutForm() {
               {...register("emailAddress", {
                 required: "Field cannot be empty",
                 pattern: {
-                  value: /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/,
+                  value: /^\S+@\S+\.\S+$/,
                   message: "Wrong format",
                 },
               })}
               label="Email Address"
-              aria-invalid={errors.email ? "true" : "false"}
-              errors={errors.email}
+              aria-invalid={errors.emailAddress ? "true" : "false"}
+              errors={errors.emailAddress}
               type="email"
               placeholder="john.doe@gmail.com"
             />
             <FormField
               {...register("phone", {
                 required: "Field cannot be empty",
-                pattern: { value: /\d/g, message: "Wrong format" },
+                pattern: { value: /^[0-9]*$/gm, message: "Wrong format" },
               })}
               label="Phone Number"
               aria-invalid={errors.phone ? "true" : "false"}
@@ -85,7 +85,7 @@ export default function CheckoutForm() {
             <FormField
               {...register("zipCode", {
                 pattern: {
-                  value: /\d/g,
+                  value: /^[0-9]*$/gm,
                   message: "Wrong format",
                 },
               })}
@@ -131,18 +131,28 @@ export default function CheckoutForm() {
                 <FormField
                   {...register("eNumber", {
                     required: "Field cannot be empty",
+                    pattern: {
+                      value: /^\d.{9}$/gm,
+                      message: "Wrong format",
+                    },
                   })}
                   errors={errors.eNumber}
                   label="e-Money Number"
                   type="text"
-                  placeholder="347589510"
+                  placeholder="1234567890"
                 />
                 <FormField
-                  {...register("pin", { required: "Field cannot be empty" })}
+                  {...register("pin", {
+                    required: "Field cannot be empty",
+                    pattern: {
+                      value: /^\d.{2}$/gm,
+                      message: "Wrong format",
+                    },
+                  })}
                   label="e-Money PIN"
                   errors={errors.pin}
                   type="text"
-                  placeholder="6891"
+                  placeholder="123"
                 />
               </div>
             ) : (
