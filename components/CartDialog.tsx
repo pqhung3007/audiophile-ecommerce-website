@@ -60,13 +60,13 @@ export default function CartDialog({
                     className="flex items-center justify-between gap-4"
                     key={index}
                   >
-                    <div className="h-16 w-16 object-cover">
+                    <div className="object-cover">
                       <Image
                         src={"/" + item.image}
                         width={64}
                         height={64}
                         alt=""
-                        className="rounded-lg"
+                        className="w-full rounded-lg"
                       />
                     </div>
                     <div>
