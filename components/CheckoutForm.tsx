@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
 import FormField from "./shared/FormField";
 import RadioPayment from "./RadioGroupPayment";
 
 export default function CheckoutForm() {
   const [paymentMethod, setPaymentMethod] = useState("e-Money");
+
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = () => console.log("Hello");
 
   return (
     <div className="basis-2/3 rounded-lg bg-white px-8 py-12 md:pb-4">
@@ -12,19 +17,26 @@ export default function CheckoutForm() {
         checkout
       </h2>
 
-      <div className="space-y-12">
+      <form className="space-y-12" onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
           <legend className="mb-4 text-sm font-bold uppercase tracking-widest text-accent">
             billing details
           </legend>
           <div className="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2">
-            <FormField label="Name" type="text" placeholder="John Doe" />
             <FormField
+              {...register("name")}
+              label="Name"
+              type="text"
+              placeholder="John Doe"
+            />
+            <FormField
+              {...register("name")}
               label="Email Address"
               type="email"
               placeholder="john.doe@gmail.com"
             />
             <FormField
+              {...register("name")}
               label="Phone Number"
               type="text"
               placeholder="+84123456789"
@@ -89,7 +101,9 @@ export default function CheckoutForm() {
             )}
           </div>
         </fieldset>
-      </div>
+
+        <button type="submit">Submit order</button>
+      </form>
     </div>
   );
 }
