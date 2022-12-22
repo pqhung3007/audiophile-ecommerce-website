@@ -24,19 +24,34 @@ export default function CheckoutForm() {
           </legend>
           <div className="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2">
             <FormField
-              {...register("name")}
+              {...register("name", {
+                required: "Field cannot be empty",
+                pattern: {
+                  value: /[a-zA-Z]+/g,
+                  message: "Wrong format",
+                },
+              })}
               label="Name"
               type="text"
               placeholder="John Doe"
             />
             <FormField
-              {...register("name")}
+              {...register("emailAddress", {
+                required: "Field cannot be empty",
+                pattern: {
+                  value: /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/,
+                  message: "Wrong format",
+                },
+              })}
               label="Email Address"
               type="email"
               placeholder="john.doe@gmail.com"
             />
             <FormField
-              {...register("name")}
+              {...register("phone", {
+                required: "Field cannot be empty",
+                pattern: /\d/g,
+              })}
               label="Phone Number"
               type="text"
               placeholder="+84123456789"
@@ -50,13 +65,29 @@ export default function CheckoutForm() {
           </legend>
           <div className="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2">
             <FormField
+              {...register("address", { required: "Field cannot be empty" })}
               label="Your Address"
               type="text"
               placeholder="Vin Ocean Park"
             />
-            <FormField label="ZIP Code" type="text" placeholder="100000" />
-            <FormField label="City" type="text" placeholder="Hanoi" />
-            <FormField label="Country" type="text" placeholder="Vietnam" />
+            <FormField
+              {...register("zipCode", { pattern: /\d/g })}
+              label="ZIP Code"
+              type="text"
+              placeholder="100000"
+            />
+            <FormField
+              {...register("city", { required: "Field cannot be empty" })}
+              label="City"
+              type="text"
+              placeholder="Hanoi"
+            />
+            <FormField
+              {...register("country")}
+              label="Country"
+              type="text"
+              placeholder="Vietnam"
+            />
           </div>
         </fieldset>
 
