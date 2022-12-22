@@ -7,7 +7,11 @@ import RadioPayment from "./RadioGroupPayment";
 export default function CheckoutForm() {
   const [paymentMethod, setPaymentMethod] = useState("e-Money");
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
 
   const onSubmit = () => console.log("Hello");
 
@@ -32,6 +36,8 @@ export default function CheckoutForm() {
                 },
               })}
               label="Name"
+              aria-invalid={errors.name ? "true" : "false"}
+              errors={errors.name}
               type="text"
               placeholder="John Doe"
             />
@@ -44,15 +50,19 @@ export default function CheckoutForm() {
                 },
               })}
               label="Email Address"
+              aria-invalid={errors.email ? "true" : "false"}
+              errors={errors.email}
               type="email"
               placeholder="john.doe@gmail.com"
             />
             <FormField
               {...register("phone", {
                 required: "Field cannot be empty",
-                pattern: /\d/g,
+                pattern: { value: /\d/g, message: "Wrong format" },
               })}
               label="Phone Number"
+              aria-invalid={errors.phone ? "true" : "false"}
+              errors={errors.phone}
               type="text"
               placeholder="+84123456789"
             />
@@ -67,18 +77,29 @@ export default function CheckoutForm() {
             <FormField
               {...register("address", { required: "Field cannot be empty" })}
               label="Your Address"
+              aria-invalid={errors.address ? "true" : "false"}
+              errors={errors.address}
               type="text"
               placeholder="Vin Ocean Park"
             />
             <FormField
-              {...register("zipCode", { pattern: /\d/g })}
+              {...register("zipCode", {
+                pattern: {
+                  value: /\d/g,
+                  message: "Wrong format",
+                },
+              })}
               label="ZIP Code"
+              aria-invalid={errors.zipCode ? "true" : "false"}
+              errors={errors.zipCode}
               type="text"
               placeholder="100000"
             />
             <FormField
               {...register("city", { required: "Field cannot be empty" })}
               label="City"
+              aria-invalid={errors.city ? "true" : "false"}
+              errors={errors.city}
               type="text"
               placeholder="Hanoi"
             />
@@ -108,11 +129,21 @@ export default function CheckoutForm() {
             {paymentMethod === "e-Money" ? (
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <FormField
+                  {...register("eNumber", {
+                    required: "Field cannot be empty",
+                  })}
+                  errors={errors.eNumber}
                   label="e-Money Number"
                   type="text"
                   placeholder="347589510"
                 />
-                <FormField label="e-Money PIN" type="text" placeholder="6891" />
+                <FormField
+                  {...register("pin", { required: "Field cannot be empty" })}
+                  label="e-Money PIN"
+                  errors={errors.pin}
+                  type="text"
+                  placeholder="6891"
+                />
               </div>
             ) : (
               <div className="flex items-start space-x-8">
