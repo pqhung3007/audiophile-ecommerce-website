@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import FormField from "./shared/FormField";
 import RadioPayment from "./RadioGroupPayment";
 import Summary from "./Summary";
+import OrderSuccessDialog from "./OrderSuccessDialog";
 
 export default function CheckoutForm() {
   const [paymentMethod, setPaymentMethod] = useState("e-Money");
+  const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
 
   const {
     register,
@@ -14,7 +16,7 @@ export default function CheckoutForm() {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = () => alert("Hello");
+  const onSubmit = () => setIsSubmitModalOpen(true);
 
   return (
     <form
@@ -184,6 +186,12 @@ export default function CheckoutForm() {
       </div>
 
       <Summary />
+
+      {/* Order Success Dialog */}
+      <OrderSuccessDialog
+        isSubmitModalOpen={isSubmitModalOpen}
+        setIsSubmitModalOpen={setIsSubmitModalOpen}
+      />
     </form>
   );
 }
