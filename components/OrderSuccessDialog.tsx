@@ -4,6 +4,7 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { useSelector } from "react-redux";
 import { cartItems, totalQuantity } from "../features/cartSlice";
+import { useCartTotal } from "../hooks/useCartTotal";
 
 interface SubmitModalProps {
   isSubmitModalOpen: boolean;
@@ -15,7 +16,7 @@ export default function OrderSuccessDialog({
   setIsSubmitModalOpen,
 }: SubmitModalProps) {
   const items = useSelector(cartItems);
-  const quantity = useSelector(totalQuantity);
+  const { grandTotal } = useCartTotal();
   const [showMore, setShowMore] = useState(false);
 
   return (
@@ -31,7 +32,7 @@ export default function OrderSuccessDialog({
       <div className="fixed inset-0 overflow-y-auto">
         <div className="flex min-h-full items-center justify-center p-4">
           {/* The actual dialog panel  */}
-          <Dialog.Panel className="mx-auto w-full max-w-sm rounded bg-white p-6">
+          <Dialog.Panel className="mx-auto max-w-md rounded bg-white p-6">
             <div className="space-y-4">
               <Image
                 src="/assets/shared/desktop/icon-check.svg"
@@ -79,7 +80,7 @@ export default function OrderSuccessDialog({
                 <div className="h-[1px] w-full bg-neutral-300"></div>
                 {items.length > 1 ? (
                   <button
-                    className="mx-auto w-full text-sm text-neutral-500"
+                    className="mx-auto w-full text-sm font-semibold text-neutral-500"
                     onClick={() => setShowMore((prevState) => !prevState)}
                   >
                     {showMore
@@ -91,7 +92,7 @@ export default function OrderSuccessDialog({
 
               <div className="flex basis-5/12 flex-col justify-center bg-black p-4">
                 <p className="uppercase text-neutral-500">grand total</p>
-                <strong className="text-lg text-white">$1000</strong>
+                <strong className="text-lg text-white">${grandTotal}</strong>
               </div>
             </div>
             <Link href="/">

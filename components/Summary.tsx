@@ -1,12 +1,11 @@
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import { cartItems, totalPrice } from "../features/cartSlice";
+import { useCartTotal } from "../hooks/useCartTotal";
 
 export default function Summary() {
   const items = useSelector(cartItems);
-  const total = useSelector(totalPrice);
-  const shippingFee: number = 50;
-  const VAT: number = Math.floor(total * 0.2);
+  const { cartTotal, SHIPPING_FEE, VAT, grandTotal } = useCartTotal();
 
   return (
     <div className=" rounded-lg bg-white p-8">
@@ -45,11 +44,11 @@ export default function Summary() {
           <div className="mt-8">
             <div className="flex justify-between">
               <p className="uppercase text-neutral-500">total</p>
-              <strong className="text-lg">$ {total}</strong>
+              <strong className="text-lg">$ {cartTotal}</strong>
             </div>
             <div className="flex justify-between">
               <p className="uppercase text-neutral-500">shipping</p>
-              <strong className="text-lg">$ {shippingFee}</strong>
+              <strong className="text-lg">$ {SHIPPING_FEE}</strong>
             </div>
             <div className="flex justify-between">
               <p className="uppercase text-neutral-500">vat (included)</p>
@@ -57,9 +56,7 @@ export default function Summary() {
             </div>
             <div className="mt-4 flex justify-between">
               <p className="uppercase text-neutral-500">grand total</p>
-              <strong className="text-lg text-accent">
-                $ {total + shippingFee + VAT}
-              </strong>
+              <strong className="text-lg text-accent">$ {grandTotal}</strong>
             </div>
           </div>
         </div>
