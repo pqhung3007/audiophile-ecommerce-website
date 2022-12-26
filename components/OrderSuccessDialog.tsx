@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { useSelector } from "react-redux";
-import { cartItems, totalQuantity } from "../features/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { cartItems, clearCart } from "../features/cartSlice";
 import { useCartTotal } from "../hooks/useCartTotal";
 
 interface SubmitModalProps {
@@ -16,8 +16,10 @@ export default function OrderSuccessDialog({
   setIsSubmitModalOpen,
 }: SubmitModalProps) {
   const items = useSelector(cartItems);
-  const { grandTotal } = useCartTotal();
+  const dispatch = useDispatch();
   const [showMore, setShowMore] = useState(false);
+
+  const { grandTotal } = useCartTotal();
 
   return (
     <Dialog
@@ -96,7 +98,10 @@ export default function OrderSuccessDialog({
               </div>
             </div>
             <Link href="/">
-              <button className="mt-4 w-full border-none bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white duration-200 hover:bg-accent-hover">
+              <button
+                className="mt-4 w-full border-none bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white duration-200 hover:bg-accent-hover"
+                onClick={() => dispatch(clearCart())}
+              >
                 back to home
               </button>
             </Link>
