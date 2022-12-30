@@ -14,6 +14,7 @@ function Navbar() {
   const menuRef = useRef(null);
   const { asPath } = useRouter();
   const quantity = useSelector(totalQuantity);
+  console.log(quantity);
 
   useEffect(() => {
     isOpen
@@ -81,8 +82,10 @@ function Navbar() {
               width={23}
               height={20}
             />
+
+            {/* Hydration error here */}
             <span className="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] text-white">
-              {quantity}
+              3
             </span>
           </button>
         </div>

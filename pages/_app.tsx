@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "../features/store";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
+import { saveCart } from "../utils/localStorage";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
