@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Product } from "../models/Product";
-import ForwardButton from "./ForwardButton";
+import { Product } from "../../models/Product";
+import ForwardButton from "../atoms/ForwardButton";
 
 export default function ProductItem({
   slug,

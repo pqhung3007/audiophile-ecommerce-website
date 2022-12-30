@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import CategoryLinks from "../CategoryLinks";
+import CategoryLinks from "./CategoryLinks";
 import { links } from "../../utils/links";
 import { totalQuantity } from "../../features/cartSlice";
-import CartDialog from "../CartDialog";
+import CartDialog from "./CartDialog";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

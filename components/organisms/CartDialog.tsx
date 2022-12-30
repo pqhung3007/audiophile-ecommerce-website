@@ -9,8 +9,8 @@ import {
   decreaseQuantity,
   totalQuantity,
   totalPrice,
-} from "../features/cartSlice";
-import ProductQuantity from "./ProductQuantity";
+} from "../../features/cartSlice";
+import ProductQuantity from "../atoms/ProductQuantity";
 import Link from "next/link";
 
 interface DialogProps {

@@ -1,5 +1,5 @@
-import { links } from "../utils/links";
-import CategoryLink from "./CategoryLink";
+import { links } from "../../utils/links";
+import CategoryLink from "../molecules/CategoryLink";
 
 export default function CategoryLinks() {
   return (

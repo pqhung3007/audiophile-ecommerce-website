@@ -1,6 +1,6 @@
-import ZX9Speaker from "./ZX9Speaker";
-import ZX7Speaker from "./ZX7Speaker";
-import YX1Earphones from "./YX1Earphones";
+import ZX9Speaker from "../molecules/ZX9Speaker";
+import ZX7Speaker from "../molecules/ZX7Speaker";
+import YX1Earphones from "../molecules/YX1Earphones";
 
 export default function ProductShowcase() {
   return (

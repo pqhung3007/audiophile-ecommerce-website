@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { addItemToCart, totalPrice } from "../features/cartSlice";
+import { addItemToCart, totalPrice } from "../../features/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Gallery from "./Gallery";
-import { Product } from "../models/Product";
+import { Product } from "../../models/Product";
 import OtherProducts from "./OtherProducts";
-import ProductQuantity from "./ProductQuantity";
+import ProductQuantity from "../atoms/ProductQuantity";
 
 export default function ProductDetail({
   id,

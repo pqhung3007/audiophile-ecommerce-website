@@ -3,8 +3,8 @@ import Image from "next/image";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { useSelector, useDispatch } from "react-redux";
-import { cartItems, clearCart } from "../features/cartSlice";
-import { useCartTotal } from "../hooks/useCartTotal";
+import { cartItems, clearCart } from "../../features/cartSlice";
+import { useCartTotal } from "../../hooks/useCartTotal";
 
 interface SubmitModalProps {
   isSubmitModalOpen: boolean;

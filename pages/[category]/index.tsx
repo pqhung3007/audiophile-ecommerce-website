@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import BestGear from "../../components/BestGear";
-import CategoryLinks from "../../components/CategoryLinks";
-import ProductList from "../../components/ProductList";
+import BestGear from "../../components/organisms/BestGear";
+import CategoryLinks from "../../components/organisms/CategoryLinks";
+import ProductList from "../../components/organisms/ProductList";
 import Params from "../../models/Params";
 import { Product } from "../../models/Product";
 import { getCategories, getProductsByCategory } from "../../utils/product";

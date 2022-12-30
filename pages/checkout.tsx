@@ -1,6 +1,6 @@
 import Head from "next/head";
-import BackButton from "../components/BackButton";
-import CheckoutForm from "../components/CheckoutForm";
+import BackButton from "../components/atoms/BackButton";
+import CheckoutForm from "../components/organisms/CheckoutForm";
 
 export default function CheckoutPage() {
   return (

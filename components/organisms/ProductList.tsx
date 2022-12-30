@@ -1,6 +1,6 @@
 import React from "react";
-import { Product } from "../models/Product";
-import ProductItem from "./ProductItem";
+import { Product } from "../../models/Product";
+import ProductItem from "../molecules/ProductItem";
 
 export default function ProductList({ products }: { products: Product[] }) {
   return (

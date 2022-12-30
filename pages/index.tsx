@@ -1,8 +1,8 @@
 import Head from "next/head";
-import BestGear from "../components/BestGear";
-import CategoryLinks from "../components/CategoryLinks";
-import Hero from "../components/Hero";
-import ProductShowcase from "../components/ProductShowcase";
+import BestGear from "../components/organisms/BestGear";
+import CategoryLinks from "../components/organisms/CategoryLinks";
+import Hero from "../components/organisms/Hero";
+import ProductShowcase from "../components/organisms/ProductShowcase";
 
 export default function Home() {
   return (

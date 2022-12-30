@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Other } from "../models/Product";
-import ForwardButton from "./ForwardButton";
+import { Other } from "../../models/Product";
+import ForwardButton from "../atoms/ForwardButton";
 
 interface OtherProps {
   others: Other[] | undefined;

@@ -4,8 +4,8 @@ import type { AppProps } from "next/app";
 import { ToastContainer } from "react-toastify";
 import { Provider } from "react-redux";
 import { store } from "../features/store";
-import Navbar from "../components/shared/Navbar";
-import Footer from "../components/shared/Footer";
+import Navbar from "../components/organisms/Navbar";
+import Footer from "../components/organisms/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

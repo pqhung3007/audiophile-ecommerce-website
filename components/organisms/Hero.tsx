@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ForwardButton from "./ForwardButton";
+import ForwardButton from "../atoms/ForwardButton";
 
 export default function Hero() {
   return (

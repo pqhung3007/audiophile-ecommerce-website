@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Image from "next/image";
-import { cartItems, totalPrice } from "../features/cartSlice";
-import { useCartTotal } from "../hooks/useCartTotal";
+import { cartItems, totalPrice } from "../../features/cartSlice";
+import { useCartTotal } from "../../hooks/useCartTotal";
 
 export default function Summary() {
   const items = useSelector(cartItems);

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import FormField from "./shared/FormField";
-import RadioPayment from "./RadioGroupPayment";
-import Summary from "./Summary";
+import FormField from "../molecules/FormField";
+import RadioPayment from "../molecules/RadioGroupPayment";
+import Summary from "../molecules/Summary";
 import OrderSuccessDialog from "./OrderSuccessDialog";
 
 export default function CheckoutForm() {

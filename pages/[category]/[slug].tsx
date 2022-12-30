@@ -3,10 +3,10 @@ import Head from "next/head";
 import Params from "../../models/Params";
 import { Product } from "../../models/Product";
 import { getProductDetails, getProductsPath } from "../../utils/product";
-import ProductDetail from "../../components/ProductDetail";
-import CategoryLinks from "../../components/CategoryLinks";
-import BestGear from "../../components/BestGear";
-import BackButton from "../../components/BackButton";
+import ProductDetail from "../../components/organisms/ProductDetail";
+import CategoryLinks from "../../components/organisms/CategoryLinks";
+import BestGear from "../../components/organisms/BestGear";
+import BackButton from "../../components/atoms/BackButton";
 
 type Props = {
   product: Product;

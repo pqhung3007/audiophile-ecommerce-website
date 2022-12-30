@@ -3,7 +3,7 @@ import path from "path";
 import { Product } from "../models/Product";
 
 export const readData = (): Product[] => {
-  const jsonDirectory = path.join(process.cwd(), "json");
+  const jsonDirectory = path.join(process.cwd(), "data");
   const fileContent = fs.readFileSync(jsonDirectory + "/data.json", "utf8");
 
   return JSON.parse(fileContent);

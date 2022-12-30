@@ -1,4 +1,4 @@
-import { CategoryImage } from "../models/Product";
+import { CategoryImage } from "../../models/Product";
 
 interface GalleryProps {
   first?: CategoryImage | undefined;

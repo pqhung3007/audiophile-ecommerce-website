@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SocialLinks from "../SocialLinks";
+import SocialLinks from "../molecules/SocialLinks";
 import { links } from "../../utils/links";
 
 function Footer() {
